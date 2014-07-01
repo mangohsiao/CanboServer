@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>CanboServer</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  
+<!-- Start of Xiao's content -->
+  <servlet>
+    <servlet-name>cmdpicker</servlet-name>
+    <servlet-class>com.emos.canbo.status.CmdPicker</servlet-class>
+    <init-param>
+      <param-name>this_host</param-name>
+      <param-value>1</param-value>
+    </init-param>
+    <init-param>
+      <param-name>picker_port</param-name>
+      <param-value>8189</param-value>
+    </init-param>
+    <init-param>
+      <param-name>picker_host</param-name>
+      <param-value>127.0.0.1</param-value>
+    </init-param>
+    <init-param>
+      <param-name>picker_path</param-name>
+      <param-value>/huabo</param-value>
+    </init-param>
+    <init-param>
+      <param-name>picker_url</param-name>
+      <param-value>/response</param-value>
+    </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>cmdpicker</servlet-name>
+    <url-pattern>/picker</url-pattern>
+  </servlet-mapping>
+  
+  <!-- DBCheck model -->
+  <servlet>
+    <servlet-name>dbcheck</servlet-name>
+    <servlet-class>com.emos.canbo.dbsync.DBCheck</servlet-class>
+    <!-- DB_PATH configuration  -->
+    <init-param>
+      <param-name>DB_PATH</param-name>
+      <param-value>D:\My Documents\smart.db</param-value>
+    </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>dbcheck</servlet-name>
+    <url-pattern>/dbcheck</url-pattern>
+  </servlet-mapping>  
+<!-- End of Xiao's content -->
+  
+  
+  <!-- reserved -->
+  <!-- 
+  <servlet>
+    <servlet-name>dbdown</servlet-name>
+    <servlet-class>com.emos.canbo.dbsync.DBDown</servlet-class>
+    <init-param>
+      <param-name>DB_PATH</param-name>
+      <param-value>D:\My Documents\Pictures\mango2.png</param-value>
+    </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>dbdown</servlet-name>
+    <url-pattern>/dbdown</url-pattern>
+  </servlet-mapping>
+  -->
+  <!-- reserved -->
+  
+</web-app>
